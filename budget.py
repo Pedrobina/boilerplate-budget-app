@@ -5,11 +5,13 @@ class Category:
         self.category_name = name
         self.ledger = []
         self.balance = 0
+        self.inicialdeposit = 0
 
     # Deposit
     def deposit(self, amount, description=""):
         self.ledger.append({"amount": amount, "description": description})
         self.balance += amount
+        self.inicialdeposit = amount
 
     # Check Founds
     def check_funds(self, amount):
@@ -41,21 +43,33 @@ class Category:
             return False
 
     def display(self):
+        #Get Category Name
         i = 1
+        space = ""
         displayName = ""
         space_line = (30 - len(self.category_name))/2
         while i <= space_line:
             displayName = displayName + "*"
             i = i + 1
-
         displayName = displayName + self.category_name
-
         i = 1
         while i <= space_line:
             displayName = displayName + "*"
             i = i + 1
 
+        #Get Initial Deposit
+        countDeposit = len(str(self.inicialdeposit))
+        countSpace = 15 - countDeposit
+        i = 1
+        while i <= countSpace:
+            space = space + " "
+            i = i + 1
+        displayName = displayName + "\n" + "initial deposit" + space + str(self.inicialdeposit)
+
+
+
         return displayName
+
 
 
 

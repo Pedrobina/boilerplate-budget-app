@@ -25,4 +25,5 @@ print(create_spend_chart([food, clothing, auto]))
 main(module='test_module', exit=False)
 '''
 food = budget.Category("Food")
+food.deposit(1000, "initial deposit")
 print(food.display())
