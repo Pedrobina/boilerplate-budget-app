@@ -21,7 +21,7 @@ class Category:
     # Withdraw
     def withdraw(self, amount, description = ""):
         if self.check_funds(amount):
-            self.ledger.append({"amount": -amount, "description": description})
+            self.ledger.append({"amount": 0 - amount, "description": description})
             self.balance -= amount
             return True
         else:
@@ -41,7 +41,23 @@ class Category:
             return False
 
     def display(self):
-        print(self.category_name)
+        i = 1
+        displayName = ""
+        space_line = (30 - len(self.category_name))/2
+        while i <= space_line:
+            displayName = displayName + "*"
+            i = i + 1
 
-    def create_spend_chart(categories):
+        displayName = displayName + self.category_name
+
+        i = 1
+        while i <= space_line:
+            displayName = displayName + "*"
+            i = i + 1
+
+        return displayName
+
+
+
+def create_spend_chart(categories):
         name = ""
