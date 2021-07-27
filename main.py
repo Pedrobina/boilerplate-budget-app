@@ -26,4 +26,6 @@ main(module='test_module', exit=False)
 '''
 food = budget.Category("Food")
 food.deposit(1000, "initial deposit")
+food.withdraw(10.15, "groceries")
+food.withdraw(15.89, "restaurant and more food for dessert")
 print(food.display())
